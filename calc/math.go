@@ -1,13 +1,18 @@
 package calc
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/fatih/color"
+)
 
 //Add should return stuff
 func Add(numbers ...int) (error, int) {
 	sum := 0
 
 	if len(numbers) < 2 {
-		return errors.New("Provide more than two numbers"), sum
+		errorString := color.RedString("Provide more than two numbers")
+		return errors.New(errorString), sum
 	}
 
 	for _, num := range numbers {
